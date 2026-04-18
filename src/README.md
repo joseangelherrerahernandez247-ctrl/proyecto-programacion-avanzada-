@@ -22,3 +22,10 @@ Este proyecto consiste en una cerradura digital básica que permite ingresar una
 
 ## Evidencia
 Las fotos del montaje están en la carpeta `docs/`.
+## Integrantes
+- Jose angel herrera hernandez
+- emmanuel llanos andrade
+- javier martin sanchez flores
+- leonel hernandez dimas  
+- zuriel ignacio delgado islas
+- michell torres 
