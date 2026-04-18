@@ -1,5 +1,5 @@
 # Cerradura Digital 🔐
-
+Proyecto de cerradura digital funcional.
 ## Descripción
 Este proyecto consiste en una cerradura digital básica que permite ingresar una clave para activar un LED o servo.
 
