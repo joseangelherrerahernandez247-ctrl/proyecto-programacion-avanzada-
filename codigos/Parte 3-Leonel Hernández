@@ -1,0 +1,59 @@
+bool puertaAbierta = false;
+
+unsigned long tiempoApertura = 0;
+const unsigned long tiempoLimite = 15000;
+
+int ledVerde = 12;
+int ledRojo = 13;
+
+int intentos = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+
+  lcd.init();
+  lcd.backlight();
+
+  servo1.attach(11);
+  servo1.write(0);
+
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledRojo, OUTPUT);
+
+  digitalWrite(ledRojo, HIGH);
+  digitalWrite(ledVerde, LOW);
+
+  SPI.begin();
+
+  rfid.PCD_Init();
+
+  if(!rtc.begin())
+  {
+    lcd.clear();
+    lcd.print("ERROR RTC");
+    delay(2000);
+  }
+
+  if(!SD.begin(SD_CS))
+  {
+    lcd.clear();
+    lcd.print("ERROR SD");
+    delay(2000);
+  }
+  else
+  {
+    guardarRegistro("Sistema iniciado");
+  }
+
+  lcd.clear();
+  lcd.setCursor(3,0);
+  lcd.print("BIENVENIDO");
+
+  lcd.setCursor(1,1);
+  lcd.print("PUERTA RFID");
+
+  delay(2500);
+
+  mostrarInicio();
+}
