@@ -1,0 +1,21 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <Keypad.h>
+#include <Servo.h>
+#include <SPI.h>
+#include <MFRC522.h>
+#include <SD.h>
+#include <RTClib.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+RTC_DS3231 rtc;
+Servo servo1;
+
+#define SD_CS 53
+#define RFID_SS_PIN 48
+#define RST_PIN 49
+
+MFRC522 rfid(RFID_SS_PIN, RST_PIN);
+
+String tarjetaCorrecta = "63C16034";
+String nombreTarjeta = "Equipo 10";
