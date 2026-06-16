@@ -1,0 +1,7 @@
+Hola, mi nombre es Javier y me encargué de la parte de autenticación mediante el teclado matricial.
+Primero configuré el keypad 4x4 para que el sistema pudiera detectar las teclas presionadas. Después programé los usuarios y sus contraseñas, registrando a Emmanuel, José Chikis, Zuriel y Javier, cada uno con una clave de cuatro dígitos.
+También desarrollé la función que compara la contraseña ingresada con las almacenadas en el sistema. Si la clave es correcta, se identifica al usuario y se permite el acceso.
+Además, programé la lectura del teclado para mostrar los números ingresados y permitir borrar datos con la tecla asterisco.
+Como medida de seguridad, el sistema cuenta los intentos fallidos y, después de tres errores, se bloquea temporalmente.
+Uno de los principales retos fue evitar que se aceptaran teclas no válidas como A, B, C y D, por lo que se agregaron validaciones para ignorarlas.
+Con esta parte del proyecto aprendí la importancia de validar correctamente las entradas del usuario para mejorar la seguridad y el funcionamiento del sistema.
