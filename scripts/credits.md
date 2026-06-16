@@ -18,4 +18,3 @@ Tiempo: 1:26
 Michelle Daniela Torres Duarte
 Rol- Librerias, configuracion general y hardaware
 Tiempo: 1:50 
-
