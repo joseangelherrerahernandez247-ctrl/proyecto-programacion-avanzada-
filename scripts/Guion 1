@@ -1,0 +1,15 @@
+Guion1 -Librerías, configuración general y hardware
+
+Hola, mi nombre es Michelle y yo trabajé en la configuración general del proyecto y la integración inicial del hardware.
+
+Mi parte del código corresponde principalmente a la sección de librerías, declaración de objetos y configuración de módulos principales. Para comenzar, se agregaron librerías como Wire para comunicación I2C, SPI para comunicación serial, Servo para controlar el servomotor, MFRC522 para el lector RFID y RTClib para el reloj en tiempo real.
+
+Después se declararon los objetos principales del sistema, como la pantalla LCD, el módulo RTC DS3231, el lector RFID y el servomotor.
+
+También se definieron los pines importantes del proyecto, por ejemplo el pin CS de la memoria SD y los pines del RFID. Esto fue importante porque tanto el RFID como la microSD utilizan el protocolo SPI y era necesario evitar conflictos de comunicación.
+
+Dentro de esta parte también se realizó la configuración física del hardware, conectando todos los módulos al Arduino Mega. Elegimos esta tarjeta debido a la gran cantidad de pines disponibles y porque permite manejar varios dispositivos al mismo tiempo.
+
+Una dificultad importante fue precisamente la comunicación SPI, ya que inicialmente el RFID y la memoria SD utilizaban el mismo pin SS, provocando errores. La solución fue cambiar el pin del RFID y reorganizar la conexión.
+
+Esta parte fue fundamental porque estableció la base sobre la cual funcionó todo el proyecto.
