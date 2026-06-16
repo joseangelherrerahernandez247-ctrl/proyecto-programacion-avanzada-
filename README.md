@@ -1,4 +1,4 @@
-Cerradura Digital 🔐
+Cerradura Digital 
 Proyecto de cerradura digital funcional.
 
 Descripción
@@ -9,14 +9,14 @@ El usuario ingresa una clave.
 El sistema la compara.
 Si es correcto, se activa el LED.
 Si es incorrecto, no hace nada.
-Uso del fpga
-Conectar el fpga al equipo
+Uso del arduino mega
+Conectar el arduino mega al equipo
 Cargar el programa
 Abrir el monitor serial
 Escribir la clave: 1234
 Presidente Entrar
 Requisitos
-FPGA
+Arduino mega 
 CONDUJO
 Resistencias
 Cables
@@ -33,4 +33,4 @@ Emmanuel Llanos Andrade
 Javier Martín Sánchez Flores
 Leonel Hernández Dimas
 Zuriel Ignacio Delgado Islas
-Michell Torres
+Michelle Daniela Torres Durant 
