@@ -1,0 +1,130 @@
+void abrirPuerta(String nombre)
+{
+  puertaAbierta = true;
+  tiempoApertura = millis();
+
+  digitalWrite(ledRojo, LOW);
+  digitalWrite(ledVerde, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("BIENVENIDO");
+
+  lcd.setCursor(0,1);
+  lcd.print(nombre);
+
+  delay(1500);
+
+  lcd.clear();
+  lcd.setCursor(2,0);
+  lcd.print("ABRIENDO");
+
+  servo1.write(90);
+
+  delay(2000);
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("PUERTA ABIERTA");
+
+  lcd.setCursor(0,1);
+  lcd.print("CIERRA EN 15s");
+
+  input = "";
+}
+
+void cerrarPuerta()
+{
+  guardarRegistro("Puerta cerrada automaticamente");
+
+  lcd.clear();
+  lcd.setCursor(2,0);
+  lcd.print("CERRANDO");
+
+  servo1.write(0);
+
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledRojo, HIGH);
+
+  delay(2000);
+
+  puertaAbierta = false;
+
+  mostrarInicio();
+}
+
+void mostrarInicio()
+{
+  lcd.clear();
+  lcd.setCursor(1,0);
+  lcd.print("INGRESE CLAVE");
+
+  lcd.setCursor(0,1);
+  lcd.print("                ");
+
+  input = "";
+}
+
+void bloqueoSistema()
+{
+  for(int i = 10; i > 0; i--)
+  {
+    lcd.clear();
+
+    lcd.setCursor(0,0);
+    lcd.print("SISTEMA");
+
+    lcd.setCursor(0,1);
+    lcd.print("BLOQUEADO ");
+    lcd.print(i);
+
+    delay(1000);
+  }
+
+  intentos = 0;
+
+  lcd.clear();
+  lcd.setCursor(1,0);
+  lcd.print("RESTAURANDO");
+
+  delay(2000);
+
+  mostrarInicio();
+}
+
+void guardarRegistro(String evento)
+{
+  File archivo = SD.open("registro.txt", FILE_WRITE);
+
+  if(archivo)
+  {
+    DateTime now = rtc.now();
+
+    archivo.print(now.day());
+    archivo.print("/");
+    archivo.print(now.month());
+    archivo.print("/");
+    archivo.print(now.year());
+    archivo.print(" ");
+
+    if(now.hour() < 10) archivo.print("0");
+    archivo.print(now.hour());
+    archivo.print(":");
+
+    if(now.minute() < 10) archivo.print("0");
+    archivo.print(now.minute());
+    archivo.print(":");
+
+    if(now.second() < 10) archivo.print("0");
+    archivo.print(now.second());
+
+    archivo.print(" - ");
+    archivo.println(evento);
+
+    archivo.close();
+  }
+  else
+  {
+    Serial.println("No se pudo abrir registro.txt");
+  }
+}
