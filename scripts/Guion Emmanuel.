@@ -1,0 +1,9 @@
+Integrante 5: Control del servomotor y pantalla LCD
+
+Hola, mi nombre es Emmanuel. Mi aportación consistió en el control del servomotor y la interfaz de usuario mediante la pantalla LCD.
+
+Cuando el sistema valida correctamente una contraseña o una tarjeta RFID, el servomotor gira hasta la posición de apertura. Después de un tiempo determinado, regresa automáticamente a la posición de cierre.
+
+La pantalla LCD informa al usuario sobre el estado del sistema mediante mensajes como "Ingrese contraseña", "Acceso concedido" o "Acceso denegado".
+
+Esto mejora la interacción entre el usuario y el sistema de control de acceso.
