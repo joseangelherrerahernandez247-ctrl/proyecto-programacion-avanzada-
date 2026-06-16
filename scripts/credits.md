@@ -14,8 +14,8 @@ Rol- Keypad, usuarios y validacion de contraseñas
 Tiempo: 2:03 
 Leonel Hernandez Dimas
 Rol- RFID y lecturas de tarjetas
-Tiempo:
+Tiempo: 1:26 
 Michelle Daniela Torres Duarte
 Rol- Librerias, configuracion general y hardaware
-Tiempo: 
+Tiempo: 1:50 
 
