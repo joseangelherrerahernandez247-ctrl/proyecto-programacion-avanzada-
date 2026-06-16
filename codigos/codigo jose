@@ -1,0 +1,90 @@
+void loop()
+{
+  leerRFID();
+
+  if(puertaAbierta)
+  {
+    if(millis() - tiempoApertura >= tiempoLimite)
+    {
+      cerrarPuerta();
+    }
+  }
+
+  char tecla = teclado.getKey();
+
+  if(tecla)
+  {
+    Serial.println(tecla);
+
+    if(!puertaAbierta)
+    {
+      if(tecla == '*')
+      {
+        input = "";
+        lcd.setCursor(0,1);
+        lcd.print("                ");
+        return;
+      }
+
+      if(tecla == 'A' || tecla == 'B' || tecla == 'C' || tecla == 'D' || tecla == '#')
+      {
+        return;
+      }
+
+      if(input.length() < 4)
+      {
+        lcd.setCursor(input.length(),1);
+        lcd.print(tecla);
+        input += tecla;
+      }
+
+      if(input.length() == 4)
+      {
+        delay(300);
+
+        int usuario = buscarUsuario(input);
+
+        if(usuario != -1)
+        {
+          intentos = 0;
+
+          String evento = "Acceso correcto - ";
+          evento += nombres[usuario];
+          evento += " - Keypad";
+
+          guardarRegistro(evento);
+
+          abrirPuerta(nombres[usuario]);
+        }
+        else
+        {
+          intentos++;
+
+          String evento = "Acceso denegado - Clave incorrecta: ";
+          evento += input;
+
+          guardarRegistro(evento);
+
+          lcd.clear();
+          lcd.setCursor(0,0);
+          lcd.print("CLAVE ERRONEA");
+
+          lcd.setCursor(0,1);
+          lcd.print("INTENTO ");
+          lcd.print(intentos);
+
+          delay(2000);
+
+          if(intentos >= 3)
+          {
+            guardarRegistro("Sistema bloqueado por 3 intentos");
+            bloqueoSistema();
+          }
+
+          input = "";
+          mostrarInicio();
+        }
+      }
+    }
+  }
+}
