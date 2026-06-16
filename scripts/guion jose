@@ -1,0 +1,11 @@
+Integrante 4: Programación del RFID
+
+Duración: 1 minuto
+
+Hola, mi nombre es jose angel . Mi trabajo se enfocó en la implementación del sistema RFID.
+
+El lector RC522 detecta las tarjetas o llaveros RFID y obtiene su identificador único o UID. El programa compara este identificador con los registros autorizados almacenados en el sistema.
+
+Cuando se detecta una tarjeta válida, se concede el acceso y se activa la apertura de la puerta. Si la tarjeta no está registrada, el acceso es rechazado.
+
+Este método proporciona una alternativa rápida y segura al ingreso mediante contraseña.
